@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).parent
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("Online_Retail.csv")
+    df = pd.read_csv(BASE_DIR / "Online_Retail.csv")
     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], format="mixed")
     df["TotalPrice"] = df["Quantity"] * df["UnitPrice"]
     return df

@@ -19,9 +19,15 @@ st.set_page_config(
 # -------------------------------
 df = load_data()
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
 @st.cache_data
 def load_rules():
-    return pd.read_pickle("rules.pkl")
+    return pd.read_pickle(BASE_DIR / "rules.pkl")
+
+rules = load_rules()
 
 rules = load_rules()
 # -------------------------------
