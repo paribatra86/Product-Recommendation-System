@@ -97,7 +97,6 @@ elif page == "Dashboard":
 elif page == "Recommendation":
 
     recommendation_page(
-        df,
         rules,
         apriori_recommend
     )
